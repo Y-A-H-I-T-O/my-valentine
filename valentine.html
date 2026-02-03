@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>For Olamiposi 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      color: #fff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      z-index: 10;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    p {
+      font-size: 1.4rem;
+      margin: 20px 0 30px;
+      line-height: 1.4;
+    }
+
+    .btn {
+      width: 100%;
+      font-size: 1.4rem;
+      padding: 16px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .yes {
+      background: #ff4757;
+      color: white;
+    }
+
+    .no {
+      background: #1e90ff;
+      color: white;
+    }
+
+    .yes:active {
+      transform: scale(1.08);
+      background: #ff6b81;
+    }
+
+    .no:active {
+      transform: scale(1.05);
+      background: #40c4ff;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 1.8rem;
+      pointer-events: none;
+      animation: float 6s linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-20vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🎵 Background Music -->
+  <audio id="bgMusic" loop>
+    <!-- Replace this with your own romantic MP3 file -->
+    <source src="romantic-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <h1>Hi baby🌚❤️......</h1>
+    <p>i was thinking about valentine's day and i realized the only person i want to share it with is you❤️<br>Will you coach me into being my Valentine❤️💕?</p>
+
+    <button class="btn yes" onclick="yesClick()">Yes 💖</button>
+    <button class="btn no" onclick="noClick()">No 🙈</button>
+  </div>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+
+      const hearts = ["❤️", "💖", "💘", "💝", "💕"];
+      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 7000);
+    }
+
+    setInterval(createHeart, 450);
+
+    function yesClick() {
+      // 🎵 Play music on interaction (mobile safe)
+      music.volume = 0.4;
+      music.play();
+
+      document.querySelector("h1").innerHTML = "YAYYYY!! 💘";
+      document.querySelector("p").innerHTML =
+        "Olamiposi, you just made this valentine  more special ❤️<br>I love you so much!";
+
+      document.querySelectorAll(".btn").forEach(btn => {
+        btn.style.display = "none";
+      });
+
+      for (let i = 0; i < 40; i++) {
+        createHeart();
+      }
+    }
+
+    function noClick() {
+      alert("Wait now 😭 please think about it again…");
+      document.querySelector("p").innerHTML =
+        "Pretty please, Olamiposi? 🥺💞<br>I promise to be an amazing Valentine.";
+    }
+  </script>
+</body>
+</html>
